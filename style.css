@@ -1,0 +1,139 @@
+body {
+    font-family: "New Tegomin", serif;
+    margin: 2% 0;
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: bolder;
+}
+    
+.card0 {
+    display: block;
+    margin: 0 auto;
+}
+    
+.searchBar {
+    margin: 0 auto;
+}
+    
+.mainCity {
+    padding: 4% 0 0 0;
+    text-align: center;
+    text-transform: capitalize;
+}
+    
+.weatherDescription{
+    text-align: center;
+    font-size: 22px;
+    color: gray;
+    text-transform: capitalize;  
+}
+    
+.cityTemperature {
+    text-align: center;
+    padding-bottom: 0.5%;
+}
+    
+.currentDate{
+    text-align: center;
+    font-size: 22px;
+    font-weight: lighter;
+    color: gray;
+}
+    
+.degreeAppeariance{
+    color: black;
+    text-decoration: none;
+    font-size: 35px;
+}
+    
+.bars {
+    height: 10rem;
+    margin-top: -2rem;
+}
+    
+.now {
+    border-top-left-radius: 8px;
+    margin-top: 3em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.thirteen {
+    border-top-left-radius: 8px;
+    margin-top: 2em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.fifteen {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 1em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.seventeen {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 3em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.nineteen {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 4em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.twentyone {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 6em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.twentyfour {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 7em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.one {
+    border-top-left-radius: 8px;
+    margin-top: 8em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.three {
+    margin-top: 8em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.five {
+    margin-top: 8em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+}
+    
+.seven {
+    border-top-left-radius: 8px;
+    margin-top: 7em;
+    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%); 
+}
+    
+.card-body3 {
+    font-size: 20px;
+}
+    
+.card-body4 {
+    margin: 0 25%;
+    padding: 5%;
+    font-size: 22px;
+}
+    
+.degreeApperiance:hover{
+    color: blue;
+    cursor: pointer;
+}
+    
