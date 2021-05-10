@@ -32,7 +32,7 @@
                                     id="current-location-button"/>
                             </div>
                             <div class="col-sm-6 pt-5">
-                                <input type="text" class="form-control" placeholder="🔍" id="search-bar"/>
+                                <input type="text" class="form-control" placeholder="🔍" id="search-bar" autocomplete="off"/>
                             </div>
                             <div class="col-sm-3 pt-5">
                                 <input type="submit" class="btn btn-primary" value="Search" id="search-button"/>
@@ -43,12 +43,13 @@
                         Barcelona
                     </h1>
                     <h2 class="currentDate" id="current-date"></h2>
-                    <h2 class="weatherDescription" id="weather-description"></h2>
+                    <h2 class="weatherDescription" id="weather-description"> <span src="" alt="" id="icon"></span></h2>
                     <h1 class="cityTemperature" >
                         <span id="city-temperature-value">12 </span>
-                        <a href="#" class="degreeAppeariance" id="celcius">ºC</a> 
+                        <span class="degreeAppeariance"> <a href="#" class="active" id="celsius">ºC</a> 
                             |
-                        <a href="#" class="degreeAppeariance" id="fahrenheit"> ºF</a>
+                        <a href="#" id="fahrenheit"> ºF</a>
+                        </span>
             
                     </h1>
                 </div>
@@ -127,26 +128,26 @@
                 <div class="card-body4">
                     <div class="row" style="text-align: center;">
                         <div class="col-6 pt-2 pb-3 border-end border-bottom">
-                            <strong> Wind </strong>
+                            <strong> Wind Speed</strong>
                             <br />
-                            5 km/h
+                            <span id="wind-speed">5</span> km/h
                         </div>
                         <div class="col-6 pt-2 pb-3 border-bottom">
-                            <strong> UV Index </strong>
+                            <strong> Feels like </strong>
                             <br />
-                            0
+                            <span id="feels-like">0</span> ºC   
                         </div>
                     </div>
                     <div class="row" style="text-align: center;">
                         <div class="col-6 pt-3 pb-2 border-end">
-                            <strong> Feels like </strong>
+                            <strong> Humidity </strong>
                             <br />
-                            11 ºC
+                            <span id="humidity">11</span> %
                         </div>
                         <div class="col-6 pt-3 pb-2">
                             <strong> Pressure </strong>
                             <br />
-                            1031 hPa
+                            <span id="pressure">1031</span> hPa
                         </div>
                     </div>
                 </div>

@@ -33,6 +33,7 @@ h1 {
 .cityTemperature {
     text-align: center;
     padding-bottom: 0.5%;
+    
 }
     
 .currentDate{
@@ -41,11 +42,18 @@ h1 {
     font-weight: lighter;
     color: gray;
 }
-    
 .degreeAppeariance{
-    color: black;
     text-decoration: none;
-    font-size: 35px;
+    color: black;
+}
+
+.degreeAppeariance .active{
+    color :rgb(33, 33, 33);
+    cursor: default;
+    text-decoration: none;
+}
+.degreeAppeariance .active:hover {
+    text-decoration: none;
 }
     
 .bars {
@@ -132,8 +140,5 @@ h1 {
     font-size: 22px;
 }
     
-.degreeApperiance:hover{
-    color: blue;
-    cursor: pointer;
-}
+
     

@@ -1,13 +1,94 @@
-function showCurrentCityName (response){
-    let currentCityName = response.data.name;
-    console.log(currentCityName);
-    let currentSearchedCityName = document.querySelector("#main-city");
-    currentSearchedCityName.innerHTML = currentCityName;
-    let currentCityTemperature = Math.round(response.data.main.temp);
-    let currentCityDegree = document.querySelector("#city-temperature-value");
-    console.log(currentCityTemperature);
-    currentCityDegree.innerHTML = currentCityTemperature;
+function formatDate (){
+    let now = new Date();
+    let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+    ];
+    let currentDay = days[now.getDay()];
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    if (minutes < 10){
+        minutes = `0${minutes}`;
+    }
+    if (hours < 10){
+    hours = `0${hours}`;
+    }
+    return `${currentDay}, ${hours}:${minutes}`;
 }
+
+function displayTemperature (response){
+    
+    let temperatureElement = document.querySelector("#city-temperature-value");
+    let cityElement = document.querySelector("#main-city");
+    let descriptionElement = document.querySelector("#weather-description");
+    let humidityElement = document.querySelector("#humidity");
+    let windElement = document.querySelector("#wind-speed");
+    let pressureElement = document.querySelector("#pressure");
+    let feelsLikeElement = document.querySelector("#feels-like");
+    let dateElement = document.querySelector("#current-date");
+
+    celsiusTemperature = response.data.main.temp;
+
+    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    console.log(response.data);
+    cityElement.innerHTML = response.data.name;
+    descriptionElement.innerHTML = response.data.weather[0].description;
+    humidityElement.innerHTML = response.data.main.humidity;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
+    pressureElement.innerHTML = response.data.main.pressure;
+    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+    dateElement.innerHTML = formatDate();
+}
+
+function search (city){
+    let apiKey = "ed0b705eed2cc81cd6b87bb194b4d152";
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    
+    
+    axios.get(apiUrl).then(displayTemperature);
+    
+}
+
+function handleSubmit (event){
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#search-bar");
+    search(cityInputElement.value);
+}
+
+function displayFahrenheitTemperature (event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#city-temperature-value");
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let fahrenheitTemperature = (celsiusTemperature * 9)/5 + 32;
+   
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+}
+
+function displayCelsiusTemperature (event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#city-temperature-value");
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celciusTemperature = null;
+
+let form = document.querySelector("#city-info");
+form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 function showLocation (position){
     let longitude = position.coords.longitude;
@@ -17,7 +98,7 @@ function showLocation (position){
 
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&&appid=${apiKey}&units=metric`;
 
-    axios.get(apiUrl).then(showCurrentCityName);
+    axios.get(apiUrl).then(displayTemperature);
 }
 
 function searchLocation(){
@@ -27,74 +108,4 @@ function searchLocation(){
 let currentLocationTemperature = document.querySelector("#current-location-button");
 currentLocationTemperature.addEventListener("click", searchLocation);
 
-function searchCityTemperature (response) {
-    console.log(response);
-    let weatherDescription = document.querySelector("#weather-description");
-    weatherDescription.innerHTML = response.data.weather[0].description;
-    let searchedTemperature = Math.round(response.data.main.temp);
-    let newTemperature = document.querySelector("#city-temperature-value");
-    console.log(searchedTemperature);
-    newTemperature.innerHTML = searchedTemperature;
-
-    function isStable (event){
-        event.preventDefault();
-        let sameDegree = document.querySelector("#city-temperature-value");
-        sameDegree.innerHTML = searchedTemperature;
-    }
-
-    let celcius = document.querySelector("#celcius");
-    celcius.addEventListener("click", isStable);   
-}
-
-function search (event){
-    event.preventDefault();
-    let searchInput = document.querySelector("#search-bar");
-    let cityName = document.querySelector("#main-city");
-
-    if (searchInput.value < 1){
-        cityName
-    }
-    else{
-        cityName.innerHTML=`${searchInput.value}`;
-    }
-
-    let apiKey = "ed0b705eed2cc81cd6b87bb194b4d152";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`
-
-    axios.get(apiUrl).then(searchCityTemperature);
-
-
-    function count (event){
-        event.preventDefault();
-        let degree = document.querySelector("#city-temperature-value");
-        let constant = 1.8;
-        let scale = 32;
-        let newDegree = Math.round(degree.innerHTML * constant + scale);
-        degree.innerHTML = `${newDegree}`;
-    }
-
-    let fahrenheit = document.querySelector("#fahrenheit");
-    fahrenheit.addEventListener("click", count);
-}
-
-let form = document.querySelector("#city-info");
-form.addEventListener("submit", search);
-
-let now = new Date();
-let days = [
-"Sunday",
-"Monday",
-"Tuesday",
-"Wednesday",
-"Thursday",
-"Friday",
-"Saturday"
-];
-let currentDay = days[now.getDay()];
-let currentInfo = document.querySelector("#current-date");
-if (now.getMinutes()<10){
-    currentInfo.innerHTML=`${currentDay}, ${now.getHours()}:0${now.getMinutes()}`;
-}
-else{
-    currentInfo.innerHTML=`${currentDay}, ${now.getHours()}:${now.getMinutes()}`;
-}
+search("Barcelona");
