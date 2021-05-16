@@ -16,35 +16,55 @@ h1 {
 .searchBar {
     margin: 0 auto;
 }
+
+.secondColumnOfTopPage{
+    text-align: center;
+}
     
 .mainCity {
-    padding: 4% 0 0 0;
+    margin-top: 10%;
+    padding-top: 2%;
     text-align: center;
     text-transform: capitalize;
 }
-    
+.main-city-related-infos{
+    font-size: 14px;
+}
 .weatherDescription{
     text-align: center;
-    font-size: 22px;
+    
     color: gray;
     text-transform: capitalize;  
+}
+
+#main-city-icon{
+    margin-left: 20%;
+    width: 39%;
+    padding-top: 2%;
 }
     
 .cityTemperature {
     text-align: center;
-    padding-bottom: 0.5%;
     
+}
+#city-temperature-value{
+    font-size: 70px;
+    padding-top: 5%;
+    vertical-align: middle;
 }
     
 .currentDate{
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: lighter;
     color: gray;
 }
 .degreeAppeariance{
     text-decoration: none;
     color: black;
+    font-size: 25px;
+    position: relative;
+    top: -15px;
 }
 .degreeAppeariance .active{
     color :rgb(33, 33, 33);
@@ -59,76 +79,10 @@ h1 {
     height: 10rem;
     margin-top: -2rem;
 }
-    
-.now {
-    border-top-left-radius: 8px;
-    margin-top: 3em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
+
+.weather-forecast-temperature-min{
+    opacity: 0.6;
 }
-    
-.thirteen {
-    border-top-left-radius: 8px;
-    margin-top: 2em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.fifteen {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-top: 1em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.seventeen {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-top: 3em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.nineteen {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-top: 4em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.twentyone {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-top: 6em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.twentyfour {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-top: 7em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.one {
-    border-top-left-radius: 8px;
-    margin-top: 8em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.three {
-    margin-top: 8em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.five {
-    margin-top: 8em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%);
-}
-    
-.seven {
-    border-top-left-radius: 8px;
-    margin-top: 7em;
-    background-image: linear-gradient(to top, #8093ff 0%, #f7c978 100%); 
-}
-    
 .card-body3 {
     font-size: 20px;
 }
