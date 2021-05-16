@@ -68,6 +68,7 @@ function displayForecast(response) {
     let forecastHTML = `<div class="row g-3 mt-2" style="text-align: center;">`;
 
     forecast.forEach(function (forecastDay, index){
+        
         if (index < 6){
 
             let tempMax = Math.round(forecastDay.temp.max);
@@ -89,6 +90,7 @@ function displayForecast(response) {
         }
 
     });
+
     forecastHTML = forecastHTML +`</div>`;
     forecastElement.innerHTML = forecastHTML;
 
@@ -153,6 +155,27 @@ function displayTemperature (response){
     sunSetElement.innerHTML = formatSunRiseAndSet(response.data.sys.sunset);
     
     getForecast (response.data.coord);
+
+    let backgroundImg = document.querySelector("#top-page");
+
+    if (response.data.weather[0].icon === `01d`| response.data.weather[0].icon === `02d`|response.data.weather[0].icon === `01n`| response.data.weather[0].icon === `02n`){
+        backgroundImg.style.backgroundImage="url('img/sunny.jpeg')";
+    }
+    if (response.data.weather[0].icon === `03d`| response.data.weather[0].icon === `04d`|response.data.weather[0].icon === `03n`| response.data.weather[0].icon === `04n`){
+        backgroundImg.style.backgroundImage="url('img/clouds.jpeg')";
+    }
+    if (response.data.weather[0].icon === `09d`| response.data.weather[0].icon === `10d`|response.data.weather[0].icon === `09n`| response.data.weather[0].icon === `10n`){
+        backgroundImg.style.backgroundImage="url('img/rain.jpeg')";
+    }
+    if (response.data.weather[0].icon === `11d`| response.data.weather[0].icon === `11n`){
+        backgroundImg.style.backgroundImage="url('img/thunder.jpeg')";
+    }
+    if (response.data.weather[0].icon === `13d`| response.data.weather[0].icon === `13n`){
+        backgroundImg.style.backgroundImage="url('img/snow.jpeg')";
+    }
+    if (response.data.weather[0].icon === `50d`| response.data.weather[0].icon === `50n`){
+        backgroundImg.style.backgroundImage="url('img/foggy.jpeg')";
+    }
 }
 
 function search (city){
